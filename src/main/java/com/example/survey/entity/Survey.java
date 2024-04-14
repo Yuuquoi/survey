@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,9 +14,14 @@ import javax.persistence.Table;
 public class Survey {
 	
 	// 問卷編號
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "no")
 	private int no;
+	
+	// 作者
+	@Column(name = "author")
+	private String author;
 	
 	// 問卷名稱
 	@Column(name = "name")
@@ -44,10 +51,10 @@ public class Survey {
 		super();
 	}
 
-	public Survey(int no, String name, String description, boolean published, LocalDate startDate, LocalDate endDate,
-			String questions) {
+	public Survey(String author, String name, String description, boolean published, LocalDate startDate,
+			LocalDate endDate, String questions) {
 		super();
-		this.no = no;
+		this.author = author;
 		this.name = name;
 		this.description = description;
 		this.published = published;
@@ -62,6 +69,14 @@ public class Survey {
 
 	public void setNo(int no) {
 		this.no = no;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public String getName() {

@@ -13,9 +13,9 @@ public class SurveyUseForm extends Survey{
 		super();
 	}
 
-	public SurveyUseForm(int no, String name, String description, boolean published, LocalDate startDate, LocalDate endDate,
+	public SurveyUseForm(String author,String name, String description, boolean published, LocalDate startDate, LocalDate endDate,
 			List<Question> questionList) {
-		super(no, name, description, published, startDate, endDate, null);
+		super(author, name, description, published, startDate, endDate, null);
 		this.questionList = questionList;
 	}
 

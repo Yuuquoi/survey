@@ -11,7 +11,7 @@ import com.example.survey.entity.Survey;
 @Repository
 public interface SurveyDao extends JpaRepository<Survey, Integer> {
 	
-	public List<Survey> findByNameContainingAndStartDateGreaterThanEqualAndEndDateLessThanEqual(String name, LocalDate startDate, LocalDate endDate);
+	public List<Survey> findByAuthorContainingAndNameContainingAndStartDateGreaterThanEqualAndEndDateLessThanEqualAndPublished(String author, String name, LocalDate startDate, LocalDate endDate, boolean published);
 	
 	public void deleteAllByNoInAndPublishedFalseOrNoInAndStartDateAfter(int no1, int no2, LocalDate startDate);
 

@@ -3,10 +3,12 @@ package com.example.survey.constants;
 public enum RtnCode {
 
 	SUCCESS(200, "Sucess !!"), //
+	DUPLICATED_REPLY(400, "Duplicated reply !!"), //
 	SURVEY_EXISTS(400, "Survey exists !!"),//
 	SURVEY_NOT_EXISTS(400, "Survey not exists !!"),//
+	JSON_ERROR(400, "JSON error!!"), //
 	PARAM_ERROR(400, "Param error !!"), //
-	PARAM_NULL(400, "Param null !!");
+	PARAM_NULL(400, "Param null !!"),;
 
 	private int code;
 
