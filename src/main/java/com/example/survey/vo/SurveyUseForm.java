@@ -27,6 +27,4 @@ public class SurveyUseForm extends Survey{
 		this.questionList = questionList;
 	}
 
-
-
 }

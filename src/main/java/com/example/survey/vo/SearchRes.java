@@ -11,7 +11,7 @@ public class SearchRes extends BaseRes {
 	public SearchRes() {
 		super();
 	}
-
+	
 	public SearchRes(RtnCode rtnCode, List<SurveyUseForm> surveyList) {
 		super(rtnCode);
 		this.surveyList = surveyList;

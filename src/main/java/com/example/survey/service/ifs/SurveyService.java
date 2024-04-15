@@ -3,27 +3,34 @@ package com.example.survey.service.ifs;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.example.survey.vo.ReplyUseForm;
+import com.example.survey.vo.Answer;
 import com.example.survey.vo.BaseRes;
+import com.example.survey.vo.Question;
 import com.example.survey.vo.SearchRes;
-import com.example.survey.vo.SurveyUseForm;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
+import com.example.survey.vo.StatisticsRes;
 
 public interface SurveyService {
 	// 後台
-	public BaseRes create(SurveyUseForm req);
+	public BaseRes create(String author, String name, String description, boolean published, LocalDate startDate, LocalDate endDate, List<Question> questions);
 
-	public BaseRes update(SurveyUseForm req);
+	public BaseRes update(int no, String author, String name, String description, boolean published, LocalDate startDate, LocalDate endDate, List<Question> questions);
 
-	public BaseRes deleteSurvey(List<Integer> nos);
+	public BaseRes deleteSurvey(List<Integer> noList);
+
+	public StatisticsRes statistics(int no);
 
 	// 前台
-	public BaseRes answer(ReplyUseForm req);
+	public BaseRes reply(int surveyNo, String phone, String name, String email, int age, List<Answer> answerss);
+	
+	// 登入
+	public BaseRes signIn(String account, String pw);
+	
+	// 註冊
+	public BaseRes signUp(String account, String pw);
 	
 	// 前後不分
-	public SearchRes search(String author, String surveyName, LocalDate startDate, LocalDate endDate, boolean isFront);
+	public SearchRes search(String surveyName, LocalDate startDate, LocalDate endDate, boolean isFront, String author, int index);
 	
-	public BaseRes statistics(int no);
-	
+	public SearchRes searchForHome(int type);
+
 }
