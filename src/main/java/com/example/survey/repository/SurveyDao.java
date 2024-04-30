@@ -22,18 +22,21 @@ public interface SurveyDao extends JpaRepository<Survey, Integer> {
 	public void deleteAllByNoInAndPublishedFalseOrNoInAndStartDateAfter(List<Integer> no1, List<Integer> no2,
 			LocalDate now);
 
-	@Query(value = "select * from survey.survey where name like %?1% and start_date>=?2 and end_date<=?3 and published=true limit 50,?4", nativeQuery = true)
-	public List<Survey> frontSearch(String surveyName, LocalDate startDate, LocalDate endDate, int index);
+	@Query(value = "select * from survey.survey where name like %?1% and start_date>=?2 and end_date<=?3 and published=true order by start_date DESC", nativeQuery = true)
+	public List<Survey> frontSearch(String surveyName, LocalDate startDate, LocalDate endDate);
 
-	@Query(value = "select * from survey.survey where name like %?1% and start_date>=?2 and end_date<=?3 and author=?4 limit 50,?5", nativeQuery = true)
-	public List<Survey> backSearch(String surveyName, LocalDate startDate, LocalDate endDate, String author, int index);
+	@Query(value = "select * from survey.survey where name like %?1% and start_date>=?2 and end_date<=?3 and author=?4 order by no DESC", nativeQuery = true)
+	public List<Survey> backSearch(String surveyName, LocalDate startDate, LocalDate endDate, String author);
 
 	// 即將結束 : 結束時間 > now，挑選值最小的四個
-	public List<Survey> findTop4ByEndDateGreaterThanOrderByEndDateAsc(LocalDate now);
+	@Query(value="select * from survey.survey where end_date >= current_date() and published=true order by end_date ASC limit 5", nativeQuery = true)
+	public List<Survey> selectComingEnd();
 	// 最近開始 : 開始時間 < now，挑選值最大的四個
-	public List<Survey> findTop4ByStartDateLessThanOrderByStartDateDesc(LocalDate now);
+	@Query(value="select * from survey.survey where start_date <= current_date() and published=true order by start_date DESC limit 5", nativeQuery = true)
+	public List<Survey> selectRecentlyStart();
 	// 即將開始 : 開始時間 > now，挑選值最小的四個
-	public List<Survey> findTop4ByStartDateGreaterThanOrderByStartDateAsc(LocalDate now);
+	@Query(value="select * from survey.survey where start_date > current_date() and published=true order by start_date ASC limit 5", nativeQuery = true)
+	public List<Survey> selectComingStart();
 
 	
 }

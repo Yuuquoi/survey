@@ -6,17 +6,29 @@ import java.util.List;
 import com.example.survey.entity.Survey;
 
 public class SurveyUseForm extends Survey{
+	
+	private String state;
 
 	private List<Question> questionList;
+	
 
 	public SurveyUseForm() {
 		super();
 	}
-
-	public SurveyUseForm(String author,String name, String description, boolean published, LocalDate startDate, LocalDate endDate,
-			List<Question> questionList) {
-		super(author, name, description, published, startDate, endDate, null);
+		
+	public SurveyUseForm(int no, String author,String name, String description, boolean published, LocalDate startDate, LocalDate endDate,
+			String state, List<Question> questionList) {
+		super(no, author, name, description, published, startDate, endDate, null);
+		this.state = state;
 		this.questionList = questionList;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	public List<Question> getQuestionList() {

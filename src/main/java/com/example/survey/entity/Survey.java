@@ -63,6 +63,19 @@ public class Survey {
 		this.questions = questions;
 	}
 
+	public Survey(int no, String author, String name, String description, boolean published, LocalDate startDate,
+			LocalDate endDate, String questions) {
+		super();
+		this.no = no;
+		this.author = author;
+		this.name = name;
+		this.description = description;
+		this.published = published;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.questions = questions;
+	}
+
 	public int getNo() {
 		return no;
 	}

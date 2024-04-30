@@ -10,7 +10,8 @@ public enum RtnCode {
 	SURVEY_NOT_EXISTS(400, "Survey not exists !!"),//
 	JSON_ERROR(400, "JSON error!!"), //
 	PARAM_ERROR(400, "Param error !!"), //
-	PASSWORD_INCORRECT(400, "Password incorrect !!");
+	PASSWORD_INCORRECT(400, "Password incorrect !!"),
+	NO_REPLY(400, "No Reply !!");
 
 	private int code;
 
