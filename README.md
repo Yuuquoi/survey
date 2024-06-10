@@ -1,47 +1,33 @@
-# 動態問卷(前端)
+# 動態問卷(後端)
 ## 使用工具
 [前端](https://github.com/Yuuquoi/surveyWeb)：Vue、JavaScript、HTML、SCSS
 
 後端：Java、Spring Boot、MySQL
 
-## 畫面呈現
-### 首頁
-![image](./readme/home.png)
-### 搜尋
-![image](./readme/search.png)
-### 會員
-![image](./readme/member.png)
-### 結果統計
-![image](./readme/statistics.png)
-![image](./readme/statistics-pieChart.png)
-![image](./readme/statistics-count.png)
+## 資料庫設計
+### 問卷
++ 一份問卷一列，將所有問題存在物件陣列中，轉成字串存入資料庫
++ 不須儲存問卷狀態，運用問卷開始時間和是否發布判斷問卷狀態即可
+### 回覆
++ 以問卷編號和手機號碼作為 pk，限制一個手機只能回答同份問卷一次
 
-## 功能呈現
-### 新增、編輯問卷
-![image](./readme/add.png)
-### 搜尋和篩選功能
-![image](./readme/member-function.png)
-### 根據會員和問卷狀態顯示功能
-#### 非會員 && 問卷狀態為開放中
-![image](./readme/survey-function4.png)
-#### 非會員 && 問卷狀態為已結束或尚未開放
-![image](./readme/survey-function5.png)
-#### 會員 && 問卷狀態為尚未發布或尚未開始
-![image](./readme/survey-function3.png)
-#### 會員 && 問卷狀態為進行中
-![image](./readme/survey-function1.png)
-#### 會員 && 問卷狀態為已結束
-![image](./readme/survey-function2.png)
+## 功能
+### 問卷
+#### 新增問卷
+#### 編輯問卷
+#### 搜尋問卷
+#### 搜尋問卷 ( for 首頁呈現 )
+#### 刪除問卷
 
-## 設置 ( Setup )
-```sh
-npm install
-```
-### Compile and Hot-Reload for Development
-```sh
-npm run dev
-```
-### Compile and Minify for Production
-```sh
-npm run build
-```
+### 登入
+
+### 答覆
+#### 新增答覆
+#### 回覆列表
+#### 回覆統計
+
+## 開發計畫
+- [ ] 根據年齡、性別或某題的回答，篩選答覆，重新統計答覆結果
+- [ ] 允許編輯回答
+- [ ] 查看以回答的問卷
+- [ ] 第三方登入
