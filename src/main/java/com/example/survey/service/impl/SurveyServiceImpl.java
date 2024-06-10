@@ -282,17 +282,17 @@ public class SurveyServiceImpl implements SurveyService {
 						mapper.readValue(item.getQuestions(), new TypeReference<List<Question>>() {
 						}));
 				if (!item.isPublished()) {
-					x.setState("尚未發布");
+					x.setState("unpublish");
 				}
 				if (item.getEndDate().isBefore(LocalDate.now()) && item.isPublished()) {
-					x.setState("已結束");
+					x.setState("done");
 				}
 				if (item.getStartDate().isAfter(LocalDate.now()) && item.isPublished()) {
-					x.setState("尚未開始");
+					x.setState("unstart");
 				}
 				if (!item.getStartDate().isAfter(LocalDate.now()) && !item.getEndDate().isBefore(LocalDate.now())
 						&& item.isPublished()) {
-					x.setState("進行中");
+					x.setState("running");
 				}
 				resList.add(x);
 			} catch (JsonProcessingException e) {
@@ -408,17 +408,17 @@ public class SurveyServiceImpl implements SurveyService {
 						mapper.readValue(item.getQuestions(), new TypeReference<List<Question>>() {
 						}));
 				if (!item.isPublished()) {
-					x.setState("尚未發布");
+					x.setState("unpublish");
 				}
 				if (item.getEndDate().isBefore(LocalDate.now()) && item.isPublished()) {
-					x.setState("已結束");
+					x.setState("done");
 				}
 				if (item.getStartDate().isAfter(LocalDate.now()) && item.isPublished()) {
-					x.setState("尚未開始");
+					x.setState("unstart");
 				}
 				if (!item.getStartDate().isAfter(LocalDate.now()) && !item.getEndDate().isBefore(LocalDate.now())
 						&& item.isPublished()) {
-					x.setState("進行中");
+					x.setState("running");
 				}
 				resList.add(x);
 			} catch (JsonProcessingException e) {
